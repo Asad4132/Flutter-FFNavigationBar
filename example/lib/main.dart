@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
           selectedItemIconColor: Colors.white,
           selectedItemLabelColor: Colors.black,
           showSelectedItemShadow: false,
-          barHeight: 70,
+          barHeight: 50,
         ),
         selectedIndex: selectedIndex,
         onSelectTab: (index) {

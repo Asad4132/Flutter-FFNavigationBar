@@ -55,23 +55,26 @@ class FFNavigationBarItem extends StatelessWidget {
     this.animationDuration = kDefaultAnimationDuration,
   }) : super(key: key);
 
-  Center _makeLabel(String label) {
+  Visibility _makeLabel(String label) {
     bool isSelected = _isItemSelected();
-    return Center(
-      child: Text(
-        label,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: isSelected
-              ? theme.selectedItemTextStyle.fontSize
-              : theme.unselectedItemTextStyle.fontSize,
-          fontWeight: isSelected
-              ? theme.selectedItemTextStyle.fontWeight
-              : theme.unselectedItemTextStyle.fontWeight,
-          color: isSelected
-              ? selectedLabelColor ?? theme.selectedItemLabelColor
-              : theme.unselectedItemLabelColor,
-          letterSpacing: isSelected ? 1.1 : 1.0,
+    return Visibility(
+      visible: isSelected,
+      child: Center(
+        child: Text(
+          label,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: isSelected
+                ? theme.selectedItemTextStyle.fontSize
+                : theme.unselectedItemTextStyle.fontSize,
+            fontWeight: isSelected
+                ? theme.selectedItemTextStyle.fontWeight
+                : theme.unselectedItemTextStyle.fontWeight,
+            color: isSelected
+                ? selectedLabelColor ?? theme.selectedItemLabelColor
+                : theme.unselectedItemLabelColor,
+            letterSpacing: isSelected ? 1.1 : 1.0,
+          ),
         ),
       ),
     );
@@ -81,14 +84,14 @@ class FFNavigationBarItem extends StatelessWidget {
     bool isSelected = _isItemSelected();
     double radius = itemWidth / 2;
     double innerBoxSize = itemWidth - 8;
-    double innerRadius = (itemWidth - 8) / 2 - 4;
+    double innerRadius = (itemWidth - 8);
 
     return CircleAvatar(
-      radius: isSelected ? radius : radius * 0.7,
+      radius: isSelected ? radius : radius,
       backgroundColor: _getBorderColor(isSelected),
       child: SizedBox(
         width: innerBoxSize,
-        height: isSelected ? innerBoxSize : innerBoxSize / 2,
+        height: isSelected ? innerBoxSize : innerBoxSize,
         child: CircleAvatar(
           radius: innerRadius,
           backgroundColor: isSelected
@@ -109,6 +112,7 @@ class FFNavigationBarItem extends StatelessWidget {
       color: isSelected
           ? selectedForegroundColor ?? theme.selectedItemIconColor
           : theme.unselectedItemIconColor,
+      size: isSelected ? 24 : 34,
     );
   }
 
@@ -148,7 +152,7 @@ class FFNavigationBarItem extends StatelessWidget {
 
     bool isSelected = _isItemSelected();
     double itemHeight = itemWidth - 20;
-    double topOffset = isSelected ? -20 : -10;
+    double topOffset = isSelected ? -30 : -10;
     double iconTopSpacer = isSelected ? 0 : 2;
     double shadowTopSpacer = 4;
 

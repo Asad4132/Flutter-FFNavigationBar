@@ -49,14 +49,15 @@ class _FFNavigationBarState extends State<FFNavigationBar> {
       ],
       child: Container(
         decoration: BoxDecoration(
-          color: bgColor,
-          boxShadow: [
-            const BoxShadow(
-              color: Colors.black12,
-              blurRadius: 2,
-            ),
-          ],
-        ),
+            color: bgColor,
+            boxShadow: [
+              const BoxShadow(
+                color: Colors.black12,
+                blurRadius: 2,
+              ),
+            ],
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20), topRight: Radius.circular(20))),
         child: SafeArea(
           child: Container(
             width: double.infinity,
