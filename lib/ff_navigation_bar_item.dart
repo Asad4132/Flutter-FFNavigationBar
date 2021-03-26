@@ -112,7 +112,7 @@ class FFNavigationBarItem extends StatelessWidget {
       color: isSelected
           ? selectedForegroundColor ?? theme.selectedItemIconColor
           : theme.unselectedItemIconColor,
-      size: isSelected ? 24 : 34,
+      size: isSelected ? 28 : 34,
     );
   }
 
